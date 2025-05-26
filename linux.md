@@ -120,9 +120,27 @@ sudo apt install -y ./google-chrome-stable_current_amd64.deb
 ## Дополнительные настройки
 
 ### Автовыключение
+
+#### Одной строкой
 ```bash
 # Добавление в cron
 (crontab -l 2>/dev/null; echo "30 23 * * * /sbin/shutdown -h now") | crontab -
+```
+
+#### Несколько команд
+1. Откройте файл crontab для редактирования:
+```bash
+crontab -e
+```
+2. Выбрать **/bin/nano**
+3. Добавьте строку с расписанием и командой выключения
+```bash
+30 23 * * * /sbin/shutdown -h now
+```
+4. Сохраните (Ctrl+O в nano, затем Enter) и закройте (Ctrl+X).
+5. Проверьте, что задача добавлена
+```bash
+crontab -l
 ```
 
 ### Настройка GTK-приложений
